@@ -4,13 +4,13 @@ import '../widgets/drawer.dart';
 
 class HomePage extends StatelessWidget {
   const HomePage({super.key});
- 
+
   @override
   Widget build(BuildContext context) {
     final days = 13;
     return Scaffold(
       appBar: AppBar(
-        title: Text("My First App"),
+        title: Text("FYP"),
       ),
       body: Center(
         child: Container(
