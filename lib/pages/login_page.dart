@@ -37,15 +37,15 @@ class _LogInPageState extends State<LogInPage> {
             child: Column(
               children: [
                 SizedBox(
-                  height: 100,
+                  height: 0,
                 ),
                 Image.asset(
-                  "assets/images/logo.png",
+                  "assets/images/logo1.png",
                   fit: BoxFit.contain,
-                  width: 250,
+                  width: 400,
                 ),
                 SizedBox(
-                  height: 30,
+                  height: 0,
                 ),
                 Text(
                   "Welcome $name",
