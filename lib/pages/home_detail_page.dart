@@ -42,11 +42,14 @@ class HomeDetailPage extends StatelessWidget {
         bottom: false,
         child: Column(
           children: [
-            Hero( // animation 
-                    tag: Key(catalog.id.toString()),
-                    child: Image.network(catalog.image),)
-                .h32(context),
-            Expanded( // it's like a container, that render brand name and description
+            Hero(
+              // animation
+              tag: Key(catalog.id.toString()),
+              child: Image.network(catalog.image),
+            ).h32(context),
+            
+            Expanded(
+                // it's like a container, that render brand name and description
                 child: VxArc(
               arcType: VxArcType.convey,
               edge: VxEdge.top,
@@ -57,7 +60,16 @@ class HomeDetailPage extends StatelessWidget {
                 child: Column(
                   children: [
                     catalog.name.text.xl3.bold.make(),
-                    catalog.description.text.lg.caption(context).make(),
+                    catalog.description.text
+                        .textStyle(context.captionStyle)
+                        .lg
+                        .make(),
+                    "Amet dolores erat gubergren consetetur dolore. Ut clita et dolor takimata accusam clita, stet amet diam diam labore et, ea et et sanctus rebum est magna lorem, et et nonumy dolor justo clita amet sanctus. Kasd tempor dolor est nonumy clita duo sea et justo, sea vero et ipsum diam."
+                        .text
+                        .lg
+                        .textStyle(context.captionStyle)
+                        .make()
+                        .py16(),
                   ],
                 ).py32(),
               ),

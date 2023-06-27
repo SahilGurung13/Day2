@@ -62,7 +62,7 @@ class CatalogItem extends StatelessWidget {
             ButtonBar(
               alignment: MainAxisAlignment.spaceBetween,
               children: [
-                "\$${FYPlog.price}".text.bold.xl.make(),
+                "\$${FYPlog.price}".text.bold.lg.red800.make(),
                 ElevatedButton(
                   onPressed: () {},
                   style: ButtonStyle(
@@ -71,10 +71,10 @@ class CatalogItem extends StatelessWidget {
                       shape: MaterialStatePropertyAll(
                         StadiumBorder(),
                       )),
-                  child: "Buy".text.make(),
-                )
+                  child: "Add to cart".text.lg.make(),
+                ).wh(105, 25),
               ],
-            )
+            ),
           ],
         ))
       ],

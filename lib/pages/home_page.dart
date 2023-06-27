@@ -1,8 +1,10 @@
 import 'dart:ui';
 
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_day1/models/fyp.dart';
+import 'package:flutter_day1/utils/routes.dart';
 import 'package:flutter_day1/widgets/themes.dart';
 import 'dart:convert';
 import '../widgets/drawer.dart';
@@ -44,6 +46,11 @@ class _HomePageState extends State<HomePage> {
   Widget build(BuildContext context) {
     return Scaffold(
         backgroundColor: MyTheme.creamColor,
+        floatingActionButton: FloatingActionButton(
+          onPressed: () => Navigator.pushNamed(context, MyRoutes.cartRoute),
+          backgroundColor: MyTheme.darkBluishColor,
+          child: Icon(CupertinoIcons.cart),
+        ),
         // appBar: AppBar(
         //   title: Text("FYP"),
         // ),
@@ -51,7 +58,7 @@ class _HomePageState extends State<HomePage> {
           //above bottom buttons
           child: Container(
             //inside body
-            padding: Vx.m32,
+            padding: Vx.m24,
 
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
@@ -118,11 +125,3 @@ class _HomePageState extends State<HomePage> {
     // );
   }
 }
-
-
-
-
-
-
-
-
