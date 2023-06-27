@@ -1,0 +1,70 @@
+// ignore_for_file: public_member_api_docs, sort_constructors_first
+import 'package:flutter/material.dart';
+import 'package:flutter_day1/widgets/themes.dart';
+import 'package:velocity_x/velocity_x.dart';
+
+import '../models/fyp.dart';
+
+class HomeDetailPage extends StatelessWidget {
+  final Item catalog;
+
+  const HomeDetailPage({
+    Key? key,
+    required this.catalog,
+  })  : assert(catalog != null),
+        super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(),
+      backgroundColor: MyTheme.creamColor,
+      bottomNavigationBar: Container(
+        color: Colors.white,
+        child: ButtonBar(
+          alignment: MainAxisAlignment.spaceBetween,
+          children: [
+            "\$${catalog.price}".text.bold.xl2.red700.make(),
+            ElevatedButton(
+              onPressed: () {},
+              style: ButtonStyle(
+                  backgroundColor:
+                      MaterialStateProperty.all(MyTheme.darkBluishColor),
+                  shape: MaterialStatePropertyAll(
+                    StadiumBorder(),
+                  )),
+              child: "Buy".text.xl2.make(),
+            ).w24(context),
+          ],
+        ),
+      ),
+      body: SafeArea(
+        bottom: false,
+        child: Column(
+          children: [
+            Hero( // animation 
+                    tag: Key(catalog.id.toString()),
+                    child: Image.network(catalog.image),)
+                .h32(context),
+            Expanded( // it's like a container, that render brand name and description
+                child: VxArc(
+              arcType: VxArcType.convey,
+              edge: VxEdge.top,
+              height: 25,
+              child: Container(
+                color: Colors.white,
+                width: context.screenWidth,
+                child: Column(
+                  children: [
+                    catalog.name.text.xl3.bold.make(),
+                    catalog.description.text.lg.caption(context).make(),
+                  ],
+                ).py32(),
+              ),
+            ))
+          ],
+        ),
+      ),
+    );
+  }
+}
