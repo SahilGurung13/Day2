@@ -18,9 +18,9 @@ class HomeDetailPage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(),
-      backgroundColor: MyTheme.creamColor,
+      backgroundColor: context.canvasColor,
       bottomNavigationBar: Container(
-        color: Colors.white,
+        color: context.canvasColor,
         child: ButtonBar(
           alignment: MainAxisAlignment.spaceBetween,
           children: [
@@ -47,7 +47,6 @@ class HomeDetailPage extends StatelessWidget {
               tag: Key(catalog.id.toString()),
               child: Image.network(catalog.image),
             ).h32(context),
-            
             Expanded(
                 // it's like a container, that render brand name and description
                 child: VxArc(
@@ -55,17 +54,23 @@ class HomeDetailPage extends StatelessWidget {
               edge: VxEdge.top,
               height: 25,
               child: Container(
-                color: Colors.white,
+                color: context.canvasColor,
                 width: context.screenWidth,
                 child: Column(
                   children: [
-                    catalog.name.text.xl3.bold.make(),
+                    catalog.name.text
+                        .color(context.theme.secondaryHeaderColor)
+                        .xl3
+                        .bold
+                        .make(),
                     catalog.description.text
+                        .color(context.theme.secondaryHeaderColor)
                         .textStyle(context.captionStyle)
                         .lg
                         .make(),
                     "Amet dolores erat gubergren consetetur dolore. Ut clita et dolor takimata accusam clita, stet amet diam diam labore et, ea et et sanctus rebum est magna lorem, et et nonumy dolor justo clita amet sanctus. Kasd tempor dolor est nonumy clita duo sea et justo, sea vero et ipsum diam."
                         .text
+                        .color(context.theme.secondaryHeaderColor)
                         .lg
                         .textStyle(context.captionStyle)
                         .make()
@@ -75,7 +80,7 @@ class HomeDetailPage extends StatelessWidget {
               ),
             ))
           ],
-        ),
+        ).color(context.cardColor),
       ),
     );
   }

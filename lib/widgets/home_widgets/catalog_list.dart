@@ -44,42 +44,48 @@ class CatalogItem extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return VxBox(
-            child: Row(
-      children: [
-        Hero(
-          tag: Key(FYPlog.id.toString()),
-          child: CatalogImage(
-            image: FYPlog.image,
-          ),
-        ),
-        Expanded(
-            child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: [
-            FYPlog.name.text.lg.bold.make(),
-            FYPlog.description.text.caption(context).make(),
-            ButtonBar(
-              alignment: MainAxisAlignment.spaceBetween,
-              children: [
-                "\$${FYPlog.price}".text.bold.lg.red800.make(),
-                ElevatedButton(
-                  onPressed: () {},
-                  style: ButtonStyle(
-                      backgroundColor:
-                          MaterialStateProperty.all(MyTheme.darkBluishColor),
-                      shape: MaterialStatePropertyAll(
-                        StadiumBorder(),
-                      )),
-                  child: "Add to cart".text.lg.make(),
-                ).wh(105, 25),
-              ],
+      child: Row(
+        children: [
+          Hero(
+            tag: Key(FYPlog.id.toString()),
+            child: CatalogImage(
+              image: FYPlog.image,
             ),
-          ],
-        ))
-      ],
-    ))
-        .white
+          ),
+          Expanded(
+              child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              FYPlog.name.text.lg.bold
+                  .color(Theme.of(context).secondaryHeaderColor)
+                  .make(),
+              FYPlog.description.text
+                  .color(Theme.of(context).secondaryHeaderColor)
+                  .caption(context)
+                  .make(),
+              ButtonBar(
+                alignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  "\$${FYPlog.price}".text.bold.lg.red800.make(),
+                  ElevatedButton(
+                    onPressed: () {},
+                    style: ButtonStyle(
+                        backgroundColor:
+                            MaterialStateProperty.all(MyTheme.darkBluishColor),
+                        shape: MaterialStatePropertyAll(
+                          StadiumBorder(),
+                        )),
+                    child: "Add to cart".text.lg.make(),
+                  ).wh(105, 25),
+                ],
+              ),
+            ],
+          ))
+        ],
+      ),
+    )
+        .color(context.cardColor)
         .rounded
         .square(101)
         .make()

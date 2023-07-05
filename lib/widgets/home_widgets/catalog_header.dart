@@ -11,8 +11,18 @@ class FYPheader extends StatelessWidget {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        "FYP".text.xl5.bold.color(MyTheme.darkBluishColor).make(),
-        "Trending Products".text.xl2.make().py8(),
+        "FYP"
+            .text
+            .xl5
+            .bold
+            .color(Theme.of(context).secondaryHeaderColor)
+            .make(),
+        "Trending Products"
+            .text
+            .xl2
+            .color(Theme.of(context).secondaryHeaderColor)
+            .make()
+            .py8(),
       ],
     );
   }
